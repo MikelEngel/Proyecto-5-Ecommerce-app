@@ -30,4 +30,4 @@ const UserSchema = new mongoose.Schema({
 
 //Exportar modelo
 
-mongoose.model('user', UserSchema, 'coleccionUser')
+mongoose.model("User", UserSchema, "coleccionUser");
