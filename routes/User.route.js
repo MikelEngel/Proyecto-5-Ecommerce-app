@@ -1,18 +1,30 @@
-// Importar express
+//! 1. Importar express
+
 const express = require('express');
 
-//Instanciar enrutador
+//! 2. Instanciar enrutador
+
 const router = express.Router();
 
-//Importar controladores
+//! 3. Importar controladores
+
 const {
     registro,
     verUsuarios,
+    filtrarUsuarios,
+    eliminarUsuarioPorId,
+    eliminarUsuariosPorFiltro,
 } = require ('../controllers');
 
-//Declaración de las rutas
-router.post('/',registro);
-router.get('/getAll', verUsuarios);
+//! 4. Declaramos rutas
 
-//Exportamos enrutador
+router.post('/', registro);
+router.get('/getAll', verUsuarios);
+router.get("/filtrar", filtrarUsuarios);
+router.delete("/:id", eliminarUsuarioPorId);
+router.delete("/", eliminarUsuariosPorFiltro);
+
+
+//! 5. Exportamos el enrutador
+
 module.exports = router;

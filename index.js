@@ -1,8 +1,6 @@
 // Importar variables de entorno
 require('dotenv').config();
 
-// console.log(process.env.PORT);
-// console.log(process.env.URI_MONGO);
 
 // Importar modelos
 require("./models");
@@ -26,9 +24,8 @@ mongoose.connect(process.env.URI_MONGO);
 app.use('/v1', routes)
 
 
-//Declarar rutas
-app.get('/',(req, res) => {
-res.json({ mensaje: "Bienvenido" });
+app.use((req, res, next) => {
+    res.send('<a href="7v1">Go to API');
 });
 
 //Levantar servidor
