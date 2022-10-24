@@ -3,6 +3,7 @@ const express = require("express");
 // const { route } = require('./User.route');
 const router = express.Router();
 const userRouter = require("./User.route");
+const EstanteriaRouter = require("./Estanteria.route");
 
 router.get("/", (req, res) => {
     res.send(`
@@ -11,6 +12,8 @@ router.get("/", (req, res) => {
 });
 
 route.use("/user", userRouter);
+route.use("/Estanteria", EstanteriaRouter);
+
 
 module.exports = router;
 
