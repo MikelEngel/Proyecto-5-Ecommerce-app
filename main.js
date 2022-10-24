@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-mongoose.connect("mongodb+srv://Angel:engelHV27@cluster0.hidpcwv.mongodb.net/test");
+mongoose.connect("mongodb+srv://Angel:engelHV27@cluster0.hidpcwv.mongodb.net/ProductosAK");
 
 const Producto = mongoose.model("Producto", {
     modelo: String,

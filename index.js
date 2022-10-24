@@ -25,7 +25,7 @@ app.use('/v1', routes)
 
 
 app.use((req, res, next) => {
-    res.send('<a href="7v1">Go to API');
+    res.send('<a href="/v1">Go to API');
 });
 
 //Levantar servidor

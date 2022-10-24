@@ -1,4 +1,4 @@
-const { registro, verUsuarios, filtrarUsuarios, eliminarUsuarioPorId, eliminarUsuariosPorFiltro } = require ("./User.controller");
+const { registro, verUsuarios, filtrarUsuarios, eliminarUsuarioPorId, eliminarUsuariosPorFiltro, actualizarUsuario } = require ("./User.controller");
 
 module.exports = {
     registro,
@@ -6,5 +6,6 @@ module.exports = {
     filtrarUsuarios,
     eliminarUsuarioPorId,
     eliminarUsuariosPorFiltro,
+    actualizarUsuario,
 };
 

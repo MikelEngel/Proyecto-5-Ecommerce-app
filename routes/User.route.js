@@ -14,6 +14,7 @@ const {
     filtrarUsuarios,
     eliminarUsuarioPorId,
     eliminarUsuariosPorFiltro,
+    actualizarUsuario,
 } = require ('../controllers');
 
 //! 4. Declaramos rutas
@@ -23,6 +24,8 @@ router.get('/getAll', verUsuarios);
 router.get("/filtrar", filtrarUsuarios);
 router.delete("/:id", eliminarUsuarioPorId);
 router.delete("/", eliminarUsuariosPorFiltro);
+router.put("/:id", actualizarUsuario);
+
 
 
 //! 5. Exportamos el enrutador

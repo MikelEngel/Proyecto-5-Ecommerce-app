@@ -86,6 +86,24 @@ const eliminarUsuariosPorFiltro = async (req, res) => {
     }
 };
 
+const actualizarUsuario = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        const actualizo = await User.findByIdAndUpdate(
+            id,
+            { $set: req.body },
+            { new: true }
+            );
+        return res
+            .status(200)
+            .json({ mensaje: "Usuaraio actualizado", detalles: actualizado });
+
+    } catch (e) {
+        return res.status(400).json({ mensaje: "Error", detalles: e.mensaje });
+    }
+}
+
 
 
 module.exports = {
@@ -94,4 +112,5 @@ module.exports = {
     filtrarUsuarios,
     eliminarUsuarioPorId,
     eliminarUsuariosPorFiltro,
+    actualizarUsuario,
 }
