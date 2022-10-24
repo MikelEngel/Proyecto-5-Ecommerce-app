@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
-mongoose.connect("mongodb+srv://Angel:engelHV27@cluster0.hidpcwv.mongodb.net/ProductosAK");
+mongoose.connect("mongodb+srv://Angel:engelHV27@cluster0.hidpcwv.mongodb.net/test");
 
-const Producto = mongoose.model("Producto", {
+const Estante = mongoose.model("Estante", {
     modelo: String,
     descripcion: String,
     medidas: String,
@@ -10,7 +10,7 @@ const Producto = mongoose.model("Producto", {
 });
 
 
-const estante = new Producto({
+const estante = new Estante({
     modelo: "HODWR01",
     descripcion: "ESTANTE 3 NIVELES",
     medidas: "60 x 35 x 76 cm",
@@ -19,4 +19,6 @@ const estante = new Producto({
 
 estante.save().then(()=>{
     console.log("Guardado");
-})
+});
+
+Estante.find().then((estantes) => {console.log(estantes)});

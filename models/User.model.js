@@ -8,16 +8,16 @@ const UserSchema = new mongoose.Schema({
         require: true,
     },
     empresa: {
-        type: String,
+         type: String,
         default: 'VyA'
     },
-    edad: {
-        type: Number,
-        min: [18, 'Tienes que ser mayor de edad'],
+     edad: {
+         type: Number,
+         min: [18, 'Tienes que ser mayor de edad'],
         max: [100, 'Superaste el rango de edad']
     },
     tipo: {
-        type: String,
+         type: String,
         enum: [
         'cliente',
         'admin',
@@ -25,9 +25,9 @@ const UserSchema = new mongoose.Schema({
         'oficina',
         ]
     },
-    default:'cliente'
+   default:'cliente'
 });
 
 //Exportar modelo
 
-mongoose.model("User", UserSchema, 'coleccionUser');
+mongoose.model('User', UserSchema, 'coleccionUser');

@@ -1,6 +1,8 @@
-// Importar variables de entorno
-require('dotenv').config();
+// // Importar variables de entorno
+require("dotenv").config();
 
+console.log(process.env.PORT);
+console.log(process.env.URI_MONGO);
 
 // Importar modelos
 require("./models");
@@ -30,13 +32,5 @@ app.use((req, res, next) => {
 
 //Levantar servidor
 app.listen(process.env.PORT, () => {
-    console.log(`Servidor iniciado en el puerto: ${process.env.PORT}`);
+    console.log(`Servidor iniciado en el puerto: ${process.env.PORT}`)
 });
-
-
-
-
-
-
-
-// const { mongoose } = require('./DataBase');

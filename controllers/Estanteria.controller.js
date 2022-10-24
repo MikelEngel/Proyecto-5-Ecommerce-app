@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { Estanteria, Estanteria, Estanteria } = require('../models');
+const { Estanteria } = require('./models');
 const Estanteria = mongoose.model('Estanteria');
 
 const nuevaEstanteria = async (req, res) => {

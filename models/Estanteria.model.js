@@ -34,6 +34,6 @@ const EstanteriaSchema = new mongoose.Schema({
 
 //Exportar modelo
 
-mongoose.model("User", EstanteriaSchema, 'coleccionEstanteria');
+mongoose.model("Estanteria", EstanteriaSchema, 'coleccionEstanteria');
 
 

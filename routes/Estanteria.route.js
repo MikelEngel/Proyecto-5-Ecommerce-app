@@ -9,23 +9,23 @@ const router = express.Router();
 //! 3. Importar controladores
 
 const {
-    registro,
-    verUsuarios,
-    filtrarUsuarios,
-    eliminarUsuarioPorId,
-    eliminarUsuariosPorFiltro,
-    actualizarUsuario,
+    nuevaEstanteria,
+    verEstanteria,
+    filtrarEstanteria,
+    eliminarEsntanteriaPorId,
+    eliminarEstanteriaPorFiltro,
+    actualizarEstanteria,
     
 } = require ('../controllers');
 
 //! 4. Declaramos rutas
 
-router.post('/', registro);
-router.get('/getAll', verUsuarios);
-router.get("/filtrar", filtrarUsuarios);
-router.delete("/:id", eliminarUsuarioPorId);
-router.delete("/", eliminarUsuariosPorFiltro);
-router.put("/:id", actualizarUsuario);
+router.post('/', nuevaEstanteria);
+router.get('/getAll', verEstanteria);
+router.get("/filtrar", filtrarEstanteria);
+router.delete("/:id", eliminarEsntanteriaPorId);
+router.delete("/", eliminarEstanteriaPorFiltro);
+router.put("/:id", actualizarEstanteria);
 
 
 
