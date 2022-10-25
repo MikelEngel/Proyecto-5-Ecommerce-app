@@ -10,12 +10,14 @@ require("./models");
 // Importar Express, mongoose & route 
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const routes = require("./routes");
 
 // Instanciar la aplicación
 const app = express();
 
 //Middlewares
+app.use(cors());
 app.use(express.json());
 
 
