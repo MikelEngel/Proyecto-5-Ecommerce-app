@@ -1,5 +1,6 @@
 // Importar mongoose
 const mongoose = require('mongoose');
+const crypto = require('crypto');
 
 //Crear esquema
 const UserSchema = new mongoose.Schema({
@@ -23,10 +24,26 @@ const UserSchema = new mongoose.Schema({
         'admin',
         'almacen',
         'oficina',
-        ]
+        ],
+        default:'cliente'
     },
-   default:'cliente'
+    password: {
+        type:String,
+    },
+    salt: {
+        type:String,
+    }
 });
+
+
+//Funciones del modelo
+UserSchema.methods.hashPassword = function (password) {
+    this.salt = crypto.randomBytes(16).toString("hex");
+    this.password = crypto
+    .pbkdf2Sync(password, this.salt, 10000, 10, "sha512")
+    .toString("hex");
+};
+
 
 //Exportar modelo
 
