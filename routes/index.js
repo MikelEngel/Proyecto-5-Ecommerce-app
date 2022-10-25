@@ -1,6 +1,4 @@
-// const { Router } = require('express');
 const express = require("express");
-// const { route } = require('./User.route');
 const router = express.Router();
 const userRouter = require("./User.route");
 const EstanteriaRouter = require("./Estanteria.route");

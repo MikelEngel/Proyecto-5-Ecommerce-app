@@ -25,10 +25,10 @@ app.use(express.json());
 mongoose.connect(process.env.URI_MONGO);
 
 //Definir rutas
-app.use('/v1', routes)
+app.use("/v1", routes);
 
 
-app.use((req, res, next) => {
+app.use((req, res) => {
     res.send('<a href="/v1">Go to API');
 });
 
