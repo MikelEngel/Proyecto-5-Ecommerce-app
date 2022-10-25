@@ -10,7 +10,7 @@ const generarToken = (payload) => {
 
 
 const verificarToken =(token) => {
-    return jwt.verify(token);
+    return jwt.verify(token,secret);
 }
 
 
