@@ -2,7 +2,7 @@ const crypto = require('crypto');
 const salt = 'abcdef';
 
 const encriptar = (password) => {
-    return crypto.pbkdf2Sync(password, salt, 10000, 10, 'sha512').toString('hex');
+    return crypto.pbkdf2Sync(password, salt, 10000, 512, 'sha512').toString('hex');
 }
 
 // console.log(encriptar('miContraseña'));

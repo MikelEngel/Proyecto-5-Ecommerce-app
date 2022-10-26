@@ -4,20 +4,64 @@ const User = mongoose.model('User');
 const registro = async (req, res) => {
    try {
 //Creamos nuestro usuario con lo que viene del body
+
+    const { password } = req.body;
+
+    delete req.body.password;
+
     const user = new User(req.body);
-    const resp = await user.save();
 
+    user.hashPassword(password);
 
-    return res.status(201).json({mensaje: "Usuario creado", data: resp});
-   }catch (e) {
+   await user.save();
+
+    return res.status(201).json({mensaje: "Usuario creado", detalles: user.onSingGenerateJWT() });
+   } catch (e) {
     return res.status(400).json({mensaje: "Error", detalles: e.message});
    };
    
 };
 
 
+
+const login = async (req, res) => {
+    try {
+ //Creamos nuestro usuario con lo que viene del body
+ 
+     const { correo, password } = req.body;
+ 
+     const user = await User.findOne({ correo });
+ 
+    if (!user){
+        return res
+        .status(404)
+        .json({ mensaje: "Error", detalles: "Usuario no encontrado" });
+    }
+
+    if (user.verifyPassword(password)) {
+        return res
+        .status(200)
+        .json({ mensaje: "Inicio de sesión correcta", detalles: user.generateJWT() });
+
+    }
+ 
+     return res
+     .status(400)
+     .json({mensaje: "Error", detalles: "Verifica tus credenciales" });
+    } catch (e) {
+     return res.status(400).json({mensaje: "Error", detalles: e.message});
+    };
+    
+ };
+
+
 const verUsuarios = async (req, res) => {
     try{
+       if (req.user.tipo !== "admin"){
+        return res
+        .status(400)
+        .json({ mensaje: "Error", detalles: "No tienes permisos" });
+       }
         const usuarios = await User.find();
         if(!usuarios.length)
         return res.status(404)
@@ -113,4 +157,5 @@ module.exports = {
     eliminarUsuarioPorId,
     eliminarUsuariosPorFiltro,
     actualizarUsuario,
+    login,
 }

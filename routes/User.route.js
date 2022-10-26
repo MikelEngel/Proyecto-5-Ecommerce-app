@@ -1,6 +1,7 @@
-//! 1. Importar express
+//! 1. Importar express & middleware
 
 const express = require('express');
+const auth = require("../middleware/auth");
 
 //! 2. Instanciar enrutador
 
@@ -15,13 +16,15 @@ const {
     eliminarUsuarioPorId,
     eliminarUsuariosPorFiltro,
     actualizarUsuario,
+    login,
     
 } = require ('../controllers');
 
 //! 4. Declaramos rutas
 
 router.post('/', registro);
-router.get('/getAll', verUsuarios);
+router.post('/login', login);
+router.get('/getAll', auth, verUsuarios);
 router.get("/filtrar", filtrarUsuarios);
 router.delete("/:id", eliminarUsuarioPorId);
 router.delete("/", eliminarUsuariosPorFiltro);
