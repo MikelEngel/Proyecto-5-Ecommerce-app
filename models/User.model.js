@@ -40,7 +40,7 @@ const UserSchema = new mongoose.Schema({
 UserSchema.methods.hashPassword = function (password) {
     this.salt = crypto.randomBytes(16).toString("hex");
     this.password = crypto
-    .pbkdf2Sync(password, this.salt, 10000, 10, "sha512")
+    .pbkdf2Sync(password, this.salt, 10000, 512, "sha512")
     .toString("hex");
 };
 
