@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const User = mongoose.model('User');
+const mongoose = require("mongoose");
+const User = mongoose.model("User");
 
 const registro = async (req, res) => {
    try {
@@ -41,7 +41,7 @@ const login = async (req, res) => {
     if (user.verifyPassword(password)) {
         return res
         .status(200)
-        .json({ mensaje: "Inicio de sesión correcta", detalles: user.generateJWT() });
+        .json({ mensaje: "Inicio de sesión correcta", detalles: user.onSingGenerateJWT() });
 
     }
  
@@ -50,7 +50,7 @@ const login = async (req, res) => {
      .json({mensaje: "Error", detalles: "Verifica tus credenciales" });
     } catch (e) {
      return res.status(400).json({mensaje: "Error", detalles: e.message});
-    };
+    }
     
  };
 

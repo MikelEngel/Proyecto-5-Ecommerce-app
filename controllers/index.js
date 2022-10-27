@@ -1,11 +1,10 @@
-const { registro, verUsuarios, filtrarUsuarios, eliminarUsuarioPorId, eliminarUsuariosPorFiltro, actualizarUsuario, login  } = require ("./User.controller");
+const { registro, verUsuarios, filtrarUsuarios, eliminarUsuarioPorId, eliminarUsuariosPorFiltro, actualizarUsuario, login, verInfoUsuario, verInfoUsuario,
+    verUsuario,  } = require ("./User.controller");
 
 const {  nuevaEstanteria,
     verEstanteria,
-    filtrarEstanteria,
     eliminarEstanteriaPorId,
-    eliminarEstanteriaPorFiltro,
-    actualizarEstanteria, } = require ("./Estanteria.controller");
+    actualizarEstanteria, verMisEstanterias, } = require ("./Estanteria.controller");
 
 module.exports = {
     registro,
@@ -16,10 +15,13 @@ module.exports = {
     actualizarUsuario,
     nuevaEstanteria,
     verEstanteria,
-    filtrarEstanteria,
     eliminarEstanteriaPorId,
-    eliminarEstanteriaPorFiltro,
     actualizarEstanteria,
     login,
+    verInfoUsuario,
+    nuevaVenta,
+    verVentas,
+    verUsuario,
+    verMisEstanterias,
 };
 
