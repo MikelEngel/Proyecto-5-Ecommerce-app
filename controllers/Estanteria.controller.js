@@ -9,7 +9,7 @@ const nuevaEstanteria = async (req, res) => {
     const resp = await Estanteria.save();
 
 
-    return res.status(201).json({mensaje: "Estanteria agregada", data: resp});
+    return res.status(201).json({mensaje: "Estanteria agregada", detalles: await resp.populate("modelo")});
    }catch (e) {
     return res.status(400).json({mensaje: "Error", detalles: e.message});
    };
@@ -19,7 +19,7 @@ const nuevaEstanteria = async (req, res) => {
 
 const verEstanteria = async (req, res) => {
     try{
-        const usuarios = await Estanteria.find();
+        const Estanteria = await Estanteria.find().populate("modelo");
         if(!Estanteria.length)
         return res.status(404)
         .json({mensaje: "Error", detalles: "Colección vacia"});
@@ -49,7 +49,7 @@ const filtrarEstanteria = async (req, res) => {
 
 
 
-const eliminarEsntanteriaPorId = async(req, res) => {
+const eliminarEstanteriaPorId = async(req, res) => {
     try {
         const { id } = req.params;
         if (id.length !== 24)
@@ -95,7 +95,7 @@ const actualizarEstanteria = async (req, res) => {
             id,
             { $set: req.body },
             { new: true }
-            );
+            ).populate("modelo");;
         return res
             .status(200)
             .json({ mensaje: "Estanteria actualizada", detalles: actualizado });
@@ -103,7 +103,7 @@ const actualizarEstanteria = async (req, res) => {
     } catch (e) {
         return res.status(400).json({ mensaje: "Error", detalles: e.mensaje });
     }
-}
+};
 
 
 
@@ -111,7 +111,7 @@ module.exports = {
     nuevaEstanteria,
     verEstanteria,
     filtrarEstanteria,
-    eliminarEsntanteriaPorId,
+    eliminarEstanteriaPorId,
     eliminarEstanteriaPorFiltro,
     actualizarEstanteria,
 

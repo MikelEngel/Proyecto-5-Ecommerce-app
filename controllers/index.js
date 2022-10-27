@@ -3,7 +3,7 @@ const { registro, verUsuarios, filtrarUsuarios, eliminarUsuarioPorId, eliminarUs
 const {  nuevaEstanteria,
     verEstanteria,
     filtrarEstanteria,
-    eliminarEsntanteriaPorId,
+    eliminarEstanteriaPorId,
     eliminarEstanteriaPorFiltro,
     actualizarEstanteria, } = require ("./Estanteria.controller");
 
@@ -17,7 +17,7 @@ module.exports = {
     nuevaEstanteria,
     verEstanteria,
     filtrarEstanteria,
-    eliminarEsntanteriaPorId,
+    eliminarEstanteriaPorId,
     eliminarEstanteriaPorFiltro,
     actualizarEstanteria,
     login,

@@ -4,8 +4,11 @@ const mongoose = require('mongoose');
 //Crear esquema
 const EstanteriaSchema = new mongoose.Schema({
     modelo: {
-        type: String,
-        require: true,
+        type: mongoose.ObjectId,
+        ref: "User",
+
+        // type: String,
+        // require: true,
     },
     descripción: {
         type: String,
