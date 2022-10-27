@@ -25,10 +25,10 @@ const {
 router.post('/', registro);
 router.post('/login', login);
 router.get('/getAll', auth, verUsuarios);
-router.get("/filtrar", filtrarUsuarios);
-router.delete("/:id", eliminarUsuarioPorId);
-router.delete("/", eliminarUsuariosPorFiltro);
-router.put("/:id", actualizarUsuario);
+router.get("/filtrar", auth, filtrarUsuarios);
+router.delete("/:id", auth, eliminarUsuarioPorId);
+router.delete("/", auth, eliminarUsuariosPorFiltro);
+router.put("/:id", auth, actualizarUsuario);
 
 
 
