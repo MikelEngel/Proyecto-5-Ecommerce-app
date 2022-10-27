@@ -13,8 +13,8 @@ const getToken = (req) => {
 const auth = jwt ({
     secret: process.env.SECRET,
     algorithms: ["HS256"],
-    userProperty: "user",
+    requestProperty: "user",
     getToken,
 });
 
-module.exports = auth
+module.exports = auth;

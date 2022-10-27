@@ -11,21 +11,17 @@ const router = express.Router();
 const {
     nuevaEstanteria,
     verEstanteria,
-    filtrarEstanteria,
-    eliminarEsntanteriaPorId,
-    eliminarEstanteriaPorFiltro,
+    eliminarEstanteriaPorId,
     actualizarEstanteria,
     
-} = require ('../controllers');
+} = require ("../controllers");
 
 //! 4. Declaramos rutas
 
-router.post('/', nuevaEstanteria);
-router.get('/getAll', verEstanteria);
-router.get("/filtrar", filtrarEstanteria);
-router.delete("/:id", eliminarEsntanteriaPorId);
-router.delete("/", eliminarEstanteriaPorFiltro);
-router.put("/:id", actualizarEstanteria);
+router.post("/", auth, nuevaEstanteria);
+router.get("/getAll", auth, verEstanteria);
+router.delete("/:id", auth, eliminarEstanteriaPorId);
+router.put("/:id", auth, actualizarEstanteria);
 
 
 
